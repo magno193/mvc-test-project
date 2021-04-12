@@ -1,0 +1,41 @@
+@model IEnumerable<Ciatecnica.Models.Client>
+@{
+	ViewData["Title"] = "Clientes | Index";
+}
+
+<section class="container p-3">
+	<div class="row pt-4">
+		<div class="col-8">
+			<h2 class="text-dark font-weight-bold">Lista de Clientes</h2>
+		</div>
+		<a asp-controller="Client" asp-action="Create" class="col-4 btn btn-primary font-weight-bold">
+			Criar novo Cliente
+		</a>
+	</div>
+	<hr>
+
+	@if (Model.Count() > 0)
+	{
+	 <table class="table table-bordered table-striped" style="width: 100%">
+		<thead>
+		 <tr>
+			<th>
+			 Nome
+			</th>
+			<th>
+			 Tipo
+			</th>
+		 </tr>
+		</thead>
+		<tbody>
+				@foreach (var item in Model)
+				{
+			 <tr>
+				<td>@item.NameCorporateName</td>
+				<td>@item.Type</td>
+			 </tr>
+				}
+		</tbody>
+	 </table>
+	}
+</section>
