@@ -5,11 +5,11 @@
 
 <section class="container p-3">
 	<div class="row pt-4">
-		<div class="col-8">
+		<div class="col-9">
 			<h2 class="text-dark font-weight-bold">Lista de Clientes</h2>
 		</div>
-		<a asp-controller="Client" asp-action="Create" class="col-4 btn btn-primary font-weight-bold">
-			Criar novo Cliente
+		<a asp-controller="Client" asp-action="Create" class="col-3 btn btn-success font-weight-bold m-auto">
+			<i class="fas fa-plus mr-1"></i>Criar novo Cliente
 		</a>
 	</div>
 	<hr>
@@ -20,10 +20,19 @@
 		<thead>
 		 <tr>
 			<th>
-			 Nome
+			 Nome/Razão Social
+			</th>
+			<th>
+			 Sobrenome/Nome Fantasia
 			</th>
 			<th>
 			 Tipo
+			</th>
+			<th>
+			 CPF/CNPJ
+			</th>
+			<th>
+			 CEP
 			</th>
 		 </tr>
 		</thead>
@@ -32,7 +41,10 @@
 				{
 			 <tr>
 				<td>@item.NameCorporateName</td>
+				<td>@item.SurnameTradeName</td>
 				<td>@item.Type</td>
+				<td>@item.CpfCnpj</td>
+				<td>@item.ZipCode</td>
 			 </tr>
 				}
 		</tbody>

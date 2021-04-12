@@ -23,7 +23,7 @@ $(document).ready(function () {
 			labelName.innerText = 'Razão social:';
 			labelSurname.innerText = 'Nome fantasia:';
 			labelCpf.innerText = 'CNPJ:';
-			$('[data-group="birthday"]').hide().children('input').val('0000-00-00');
+			$('[data-group="birthday"]').hide().children('input').val('');
 			$('[data-input="name"]').val('');
 			$('[data-input="surname"]').val('');
 			$('[data-input="cpf"]').val('')

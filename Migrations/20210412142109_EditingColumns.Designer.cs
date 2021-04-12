@@ -3,14 +3,16 @@ using System;
 using Ciatecnica.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ciatecnica.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210412142109_EditingColumns")]
+    partial class EditingColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,7 @@ namespace Ciatecnica.Migrations
 
                     b.Property<string>("CpfCnpj")
                         .IsRequired()
-                        .HasColumnType("varchar(18)");
+                        .HasColumnType("varchar(14)");
 
                     b.Property<string>("District")
                         .IsRequired()

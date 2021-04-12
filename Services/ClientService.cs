@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Ciatecnica.Data;
 using Ciatecnica.Models;
@@ -27,19 +28,20 @@ namespace Ciatecnica.Services
 		{
 			string formatZip = entity.ZipCode.Replace("-", "");
 			entity.ZipCode = formatZip;
-			if (entity.Type == "Pessoa Física")
+
+			var find = await GetByCpfCnpj(entity.CpfCnpj);
+			if (find == null)
 			{
-				var age = DateTime.Today.Year - entity.Birthday.Value.Year;
-				if (age < 19)
-				{
-				}
+				_context.clients.Add(entity);
+				await _context.SaveChangesAsync();
+				return entity;
 			}
-			_context.clients.Add(entity);
-			await _context.SaveChangesAsync();
+			// TODO Should warn the user with some error
 			return entity;
 		}
 
 		public async Task<Client> GetById(string id) => await _context.clients.FindAsync(id);
+		public async Task<Client> GetByCpfCnpj(string cpfCnpj) => await _context.clients.Where(client => client.CpfCnpj == cpfCnpj).FirstOrDefaultAsync();
 		public async Task<IEnumerable<Client>> GetAll() => await _context.clients.ToListAsync();
 	}
 }

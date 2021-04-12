@@ -9,9 +9,11 @@ namespace Ciatecnica.CustomValidation
 		protected override ValidationResult IsValid(object value, ValidationContext validationContext)
 		{
 			Client client = (Client)validationContext.ObjectInstance;
-
-			if (client.Birthday == null)
+			if (client.Type == "Pessoa Física" && client.Birthday == null)
 				return new ValidationResult("Data de aniversário é obrigatório");
+			if (client.Type == "Pessoa Jurídica")
+				return ValidationResult.Success;
+
 
 			int age = DateTime.Today.Year - client.Birthday.Value.Year;
 

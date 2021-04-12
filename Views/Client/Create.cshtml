@@ -15,40 +15,40 @@
 				<select class="form-control custom-select" data-type asp-for="Type">
 					<option selected>Pessoa Física</option>
 					<option>Pessoa Jurídica</option>
+					<span asp-validation-for="Type" class="text-danger"></span>
 				</select>
-				<span asp-validation-for="Type" class="text-danger"></span>
 			</div>
 		</div>
 		<div class="form-row">
 			<div class="form-group col-4">
 				<label class="font-weight-bold" data-label="name">Nome:</label>
-				<input class="form-control" type="text" data-input="name" asp-for="NameCorporateName">
 				<span asp-validation-for="NameCorporateName" class="text-danger"></span>
+				<input class="form-control" type="text" data-input="name" asp-for="NameCorporateName">
 			</div>
 			<div class="form-group col-4">
 				<label class="font-weight-bold" data-label="surname">Sobrenome:</label>
-				<input class="form-control" type="text" data-input="surname" asp-for="SurnameTradeName">
 				<span asp-validation-for="SurnameTradeName" class="text-danger"></span>
+				<input class="form-control" type="text" data-input="surname" asp-for="SurnameTradeName">
 			</div>
 			<div class="form-group col-4" data-group="birthday">
 				<label class="font-weight-bold" data-label="birthday">Data de nascimento:</label>
-				<input class="form-control" type="date" asp-for="Birthday">
 				<span asp-validation-for="Birthday" class="text-danger"></span>
+				<input class="form-control" type="date" asp-for="Birthday">
 			</div>
 		</div>
 		<div class="form-row">
 			<div class="form-group col-4">
 				<label class="font-weight-bold" data-label="cpf">CPF: </label>
-				<input type="text" class="form-control" data-input="cpf" asp-for="CpfCnpj">
 				<span asp-validation-for="CpfCnpj" class="text-danger"></span>
+				<input type="text" class="form-control" data-input="cpf" asp-for="CpfCnpj">
 			</div>
 		</div>
 		<hr>
 		<div class="form-row">
 			<div class="form-group col-4">
 				<label class="font-weight-bold">CEP:</label>
-				<input type="text" class="form-control" data-address="cep" asp-for="ZipCode">
 				<span asp-validation-for="ZipCode" class="text-danger"></span>
+				<input type="text" class="form-control" data-address="cep" asp-for="ZipCode" placeholder="Enter para pesquisar">
 			</div>
 			<div class="form-group col-3 d-flex">
 				<button type="button" class="btn btn-info w-100 mt-auto" data-search>
@@ -61,35 +61,36 @@
 		<div class="form-row">
 			<div class="form-group col-4">
 				<label class="font-weight-bold">Cidade:</label>
-				<input type="text" class="form-control" data-address="address-city" readonly asp-for="City">
 				<span asp-validation-for="City" class="text-danger"></span>
+				<input type="text" class="form-control form-control-sm" data-address="address-city" readonly asp-for="City">
 			</div>
-			<div class="form-group col-1">
+			<div class="form-group col-2">
 				<label class="font-weight-bold">UF:</label>
-				<input type="text" class="form-control" data-address="address-state" readonly asp-for="State">
 				<span asp-validation-for="State" class="text-danger"></span>
+				<input type="text" class="form-control form-control-sm" data-address="address-state" readonly asp-for="State">
 			</div>
-			<div class="form-group col-7">
+			<div class="form-group col-6">
 				<label class="font-weight-bold">Endereço:</label>
-				<input type="text" class="form-control" data-address="address" readonly asp-for="Address">
 				<span asp-validation-for="Address" class="text-danger"></span>
+				<input type="text" class="form-control form-control-sm" data-address="address" readonly asp-for="Address">
 			</div>
 		</div>
 		<div class="form-row">
 			<div class="form-group col-3">
 				<label class="font-weight-bold">Número:</label>
-				<input type="text" class="form-control" data-address="address-number" asp-for="AddressNumber">
 				<span asp-validation-for="AddressNumber" class="text-danger"></span>
+				<input type="text" class="form-control form-control-sm" data-address="address-number" asp-for="AddressNumber">
 			</div>
 			<div class="form-group col-4">
 				<label class="font-weight-bold">Complemento:</label>
-				<input type="text" class="form-control" data-address="address-complement" asp-for="AddressComplement">
 				<span asp-validation-for="AddressComplement" class="text-danger"></span>
+				<input type="text" class="form-control form-control-sm" data-address="address-complement"
+					asp-for="AddressComplement">
 			</div>
 			<div class="form-group col-5">
 				<label class="font-weight-bold">Bairro:</label>
-				<input type="text" class="form-control" data-address="address-district" asp-for="District">
 				<span asp-validation-for="District" class="text-danger"></span>
+				<input type="text" class="form-control form-control-sm" data-address="address-district" asp-for="District">
 			</div>
 		</div>
 		<hr>

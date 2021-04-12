@@ -12,9 +12,11 @@ namespace Ciatecnica.Models
 		public int Id { get; set; }
 		[Column(TypeName = "varchar(24)")]
 		[Required(ErrorMessage = "Campo obrigatório")]
+		[TypeDataValidation]
 		public string Type { get; set; }
-		[Column(TypeName = "varchar(14)")]
+		[Column(TypeName = "varchar(18)")]
 		[Required(ErrorMessage = "Campo obrigatório")]
+		[CPFCNPJRegex(ErrorMessage = "Formato inválido")]
 		public string CpfCnpj { get; set; }
 		[Column(TypeName = "varchar(200)")]
 		[Required(ErrorMessage = "Campo obrigatório")]
@@ -23,11 +25,11 @@ namespace Ciatecnica.Models
 		[Required(ErrorMessage = "Campo obrigatório")]
 		public string SurnameTradeName { get; set; }
 		[Column(TypeName = "date")]
-		[Required(ErrorMessage = "Campo obrigatório")]
 		[Min19Years]
 		public DateTime? Birthday { get; set; }
 		[Column(TypeName = "varchar(8)")]
 		[Required(ErrorMessage = "Campo obrigatório")]
+		[RegularExpression(@"^\d{5}-\d{3}$", ErrorMessage = "Formato de CEP inválido")]
 		public string ZipCode { get; set; }
 		[Column(TypeName = "varchar(100)")]
 		[Required(ErrorMessage = "Campo obrigatório")]
